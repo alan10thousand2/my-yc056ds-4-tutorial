@@ -75,6 +75,7 @@
 
       .nav-menu li {
         margin: 0.3rem 0;
+        position: relative;
       }
 
       .nav-btn {
@@ -106,6 +107,69 @@
       }
 
       .nav-btn.active {
+        background: #ffaa44;
+        color: #1f2e3a;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+      }
+
+      /* 子選單樣式 */
+      .nav-submenu {
+        list-style: none;
+        padding-left: 1.5rem;
+        margin: 0.2rem 0 0.2rem 0;
+        display: none;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+      }
+      .nav-submenu.open {
+        display: block;
+      }
+      .nav-submenu .nav-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        opacity: 0.85;
+        width: 100%;
+      }
+      .nav-submenu .nav-btn.active {
+        opacity: 1;
+        background: #ffaa44;
+        color: #1f2e3a;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+      .nav-submenu .nav-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(4px);
+      }
+      .parent-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: transparent;
+        border: none;
+        color: #e2edf2;
+        font-size: 0.88rem;
+        font-weight: 500;
+        padding: 0.7rem 1rem;
+        border-radius: 32px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+      }
+      .parent-toggle:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: white;
+      }
+      .parent-toggle .arrow {
+        transition: transform 0.25s;
+        font-size: 0.7rem;
+        margin-left: 8px;
+      }
+      .parent-toggle .arrow.open {
+        transform: rotate(90deg);
+      }
+      .parent-toggle.active {
         background: #ffaa44;
         color: #1f2e3a;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -242,6 +306,9 @@
           padding: 0.4rem 1rem;
           font-size: 0.75rem;
         }
+        .nav-submenu {
+          padding-left: 0.5rem;
+        }
         .main-area {
           height: auto;
           padding: 1.5rem;
@@ -338,12 +405,46 @@
               Objects & Mail Bombs)
             </button>
           </li>
+          <!-- 第十五章：緊急事件處理程序（父項 + 子選單） -->
           <li>
-            <button class="nav-btn" data-chapter="ch15">
-              🚨 緊急事件處理程序 (Emergency Incident Procedures)
-            </button>
+            <div class="parent-toggle" id="parentToggle">
+              <span>🚨 緊急事件處理程序 (Emergency Incident Procedures)</span>
+              <span class="arrow open">▶</span>
+            </div>
+            <ul class="nav-submenu open" id="submenuEmergency">
+              <li>
+                <button class="nav-btn" data-chapter="ch15-typhoon">
+                  🌪️ 颱風 (Typhoon)
+                </button>
+              </li>
+              <li>
+                <button class="nav-btn" data-chapter="ch15-lift">
+                  🛗 升降機 (Lift)
+                </button>
+              </li>
+              <li>
+                <button class="nav-btn" data-chapter="ch15-power">
+                  ⚡ 電力 (Power)
+                </button>
+              </li>
+              <li>
+                <button class="nav-btn" data-chapter="ch15-gas">
+                  💨 氣體 (Gas)
+                </button>
+              </li>
+              <li>
+                <button class="nav-btn" data-chapter="ch15-water">
+                  🌊 水 (Water)
+                </button>
+              </li>
+              <li>
+                <button class="nav-btn" data-chapter="ch15-falling">
+                  🧱 高空墜物 (Falling Objects)
+                </button>
+              </li>
+            </ul>
           </li>
-          <!-- 新增第十六章：消防系統 -->
+          <!-- 第十六章：消防系統 -->
           <li>
             <button class="nav-btn" data-chapter="ch16">
               🔥 消防系統 (Fire Planet)
@@ -1346,12 +1447,11 @@
         </div>
 
         <!-- 第十五章：緊急事件處理程序 -->
-        <div id="ch15" class="chapter">
+        <!-- 颱風 -->
+        <div id="ch15-typhoon" class="chapter">
           <div class="section-title">
-            🚨 緊急事件處理程序 (Emergency Incident Procedures)
-          </div>
-          <div class="subheading">
-            🌪️ 颱風 (Typhoon) – 8號或以上 (Signal No. 8 or above)
+            🌪️ 颱風處理程序 (Typhoon Procedures) – 8號或以上 (Signal No. 8 or
+            above)
           </div>
           <ul>
             <li>
@@ -1369,7 +1469,17 @@
               ready)
             </li>
           </ul>
-          <div class="subheading">🛗 升降機困人 (Lift Entrapment)</div>
+          <div class="legal-box card-tip">
+            <span class="example-badge">勞工處指引</span>
+            八號預警/八號以上，非指定人員可分批下班；工作地點有危險時僱主應安排提前離開或提供避難所。三號取代後，僱員應在安全下返回崗位，僱主容許彈性復工。
+          </div>
+        </div>
+
+        <!-- 升降機 -->
+        <div id="ch15-lift" class="chapter">
+          <div class="section-title">
+            🛗 升降機困人處理程序 (Lift Entrapment Procedures)
+          </div>
           <ul>
             <li>
               確定編號位置，安撫被困者，通知控制室及維修公司 (Identify lift
@@ -1386,29 +1496,67 @@
               details of the trapped persons and police case number)
             </li>
           </ul>
-          <div class="subheading">
-            ⚡ 停電 / 洩漏 / 水浸 (Power Outage / Gas Leak / Flooding)
+          <div class="card-tip">
+            ⚠️ 在火警或其他緊急情況下，絕不可使用升降機逃生，應使用樓梯撤離。
+          </div>
+        </div>
+
+        <!-- 電力 -->
+        <div id="ch15-power" class="chapter">
+          <div class="section-title">
+            ⚡ 停電處理程序 (Power Outage Procedures)
           </div>
           <ul>
             <li>
-              <strong>停電 (Power Outage)</strong
-              >：通知主管搶修，安撫用戶，切勿用蠟燭 (Notify supervisor for
-              repair; reassure residents; do not use candles)
+              通知主管搶修，安撫用戶，切勿用蠟燭 (Notify supervisor for repair;
+              reassure residents; do not use candles)
             </li>
+          </ul>
+          <div class="legal-box card-tip">
+            <span class="example-badge">機電署指引</span>
+            停電時勿用蠟燭，使用電筒；需維生儀器者立即求助；撤離前拔掉電器插頭並關總掣；電力裝置擁有人須定期檢查，違者可罰款1萬元。
+          </div>
+        </div>
+
+        <!-- 氣體 -->
+        <div id="ch15-gas" class="chapter">
+          <div class="section-title">
+            💨 氣體洩漏處理程序 (Gas Leak Procedures)
+          </div>
+          <ul>
             <li>
-              <strong>氣體洩漏 (Gas Leak)</strong
-              >：熄滅明火，打開門窗，關氣閥，疏散及報警 (Extinguish open flames;
+              熄滅明火，打開門窗，關氣閥，疏散及報警 (Extinguish open flames;
               open windows and doors; turn off gas valve; evacuate and call
               police)
             </li>
+          </ul>
+          <div class="legal-box card-tip">
+            <span class="example-badge">機電署指引</span>
+            應：弄熄明火、開窗、關氣閥、疏散；不應：吸煙、開關電器、觸摸氣體用具、重開氣閥前未經檢查。
+          </div>
+        </div>
+
+        <!-- 水 -->
+        <div id="ch15-water" class="chapter">
+          <div class="section-title">
+            🌊 水浸處理程序 (Flooding Procedures)
+          </div>
+          <ul>
             <li>
-              <strong>水浸 (Flooding)</strong
-              >：移開積物、清理渠道、使用沙包、查明原因 (Remove debris; clear
+              移開積物、清理渠道、使用沙包、查明原因 (Remove debris; clear
               drainage channels; use sandbags; investigate the cause)
             </li>
           </ul>
-          <div class="subheading">
-            🧱 高空墜物 (Falling Objects from Height)
+          <div class="card-tip">
+            渠務署24小時熱線 2300
+            1110，報告時需提供詳細地點、水浸深度/範圍、有否污水湧出等資料。定期清理去水口，低窪地區預置沙包。
+          </div>
+        </div>
+
+        <!-- 高空墜物 -->
+        <div id="ch15-falling" class="chapter">
+          <div class="section-title">
+            🧱 高空墜物處理程序 (Falling Objects Procedures)
           </div>
           <ul>
             <li>
@@ -1481,40 +1629,107 @@
       // 章節切換與導航高亮
       const chapters = document.querySelectorAll(".chapter");
       const navButtons = document.querySelectorAll(".nav-btn");
+      const parentToggle = document.getElementById("parentToggle");
+      const subMenu = document.getElementById("submenuEmergency");
 
+      // 顯示指定章節，並更新按鈕高亮
       function showChapter(chapterId) {
+        // 隱藏所有章節
         chapters.forEach((ch) => ch.classList.remove("active-chapter"));
         const target = document.getElementById(chapterId);
         if (target) target.classList.add("active-chapter");
 
-        navButtons.forEach((btn) => {
-          btn.classList.remove("active");
-          if (btn.getAttribute("data-chapter") === chapterId) {
-            btn.classList.add("active");
-          }
-        });
+        // 清除所有按鈕的高亮（包括父按鈕及子按鈕）
+        navButtons.forEach((btn) => btn.classList.remove("active"));
+        // 找到對應的按鈕並高亮
+        const activeBtn = document.querySelector(
+          `.nav-btn[data-chapter="${chapterId}"]`
+        );
+        if (activeBtn) activeBtn.classList.add("active");
+
+        // 如果點擊的是子項，父按鈕保持高亮（表示該組為活動狀態）
+        if (chapterId.startsWith("ch15-")) {
+          parentToggle.classList.add("active");
+        } else {
+          // 其他章節時，父按鈕取消高亮（可選）
+          parentToggle.classList.remove("active");
+        }
+
+        // 滾動至頂部
         document.querySelector(".main-area").scrollTop = 0;
       }
 
+      // 父按鈕點擊：展開/收縮子選單，預設顯示颱風（若收縮時則隱藏內容？我們保持內容不變，只控制菜單）
+      parentToggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const isOpen = subMenu.classList.contains("open");
+        if (isOpen) {
+          // 收縮
+          subMenu.classList.remove("open");
+          this.querySelector(".arrow").classList.remove("open");
+          // 可選：隱藏內容？但要求點擊父項時顯示下拉菜單，預設顯示颱風，所以當收縮時不改變內容，仍顯示當前子項。
+          // 但若收縮時，內容仍保留最後顯示的子項。
+        } else {
+          // 展開
+          subMenu.classList.add("open");
+          this.querySelector(".arrow").classList.add("open");
+          // 如果當前顯示的不是子項（比如其他章節），則自動切換到颱風
+          const activeChapter = document.querySelector(".chapter.active-chapter");
+          const activeId = activeChapter ? activeChapter.id : "";
+          if (!activeId.startsWith("ch15-")) {
+            // 顯示颱風
+            showChapter("ch15-typhoon");
+            // 高亮對應子按鈕
+            navButtons.forEach((btn) => btn.classList.remove("active"));
+            const typhoonBtn = document.querySelector(
+              '.nav-btn[data-chapter="ch15-typhoon"]'
+            );
+            if (typhoonBtn) typhoonBtn.classList.add("active");
+            parentToggle.classList.add("active");
+          }
+        }
+      });
+
+      // 為所有 nav-btn 綁定點擊事件（包括子項）
       navButtons.forEach((btn) => {
         btn.addEventListener("click", function (e) {
           const chapterId = this.getAttribute("data-chapter");
-          if (chapterId) showChapter(chapterId);
+          if (chapterId) {
+            showChapter(chapterId);
+            // 如果是子項，確保父選單展開
+            if (chapterId.startsWith("ch15-")) {
+              subMenu.classList.add("open");
+              parentToggle.querySelector(".arrow").classList.add("open");
+              parentToggle.classList.add("active");
+            }
+          }
         });
       });
 
-      // 初始同步高亮
-      const activeNow = document.querySelector(".chapter.active-chapter");
-      if (activeNow) {
-        const initId = activeNow.getAttribute("id");
+      // 初始同步高亮（預設第一章 active）
+      const initialActive = document.querySelector(".chapter.active-chapter");
+      if (initialActive) {
+        const initId = initialActive.getAttribute("id");
+        // 如果初始是 ch1，高亮 ch1 按鈕
         navButtons.forEach((btn) => {
           if (btn.getAttribute("data-chapter") === initId)
             btn.classList.add("active");
           else btn.classList.remove("active");
         });
+        // 如果初始是 ch15 的子項，則展開父選單並高亮父項
+        if (initId.startsWith("ch15-")) {
+          subMenu.classList.add("open");
+          parentToggle.querySelector(".arrow").classList.add("open");
+          parentToggle.classList.add("active");
+        } else {
+          parentToggle.classList.remove("active");
+        }
       } else {
+        // 若無 active，則預設顯示 ch1
         showChapter("ch1");
       }
+
+      // 點擊其他區域不影響，另外確保點擊子項時父選單展開
     </script>
   </body>
 </html>
