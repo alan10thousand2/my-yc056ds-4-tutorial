@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>香港保安人員課程｜終極整合版 (Ultimate Integrated)</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          Roboto,
+          "Noto Sans",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #eef2f5;
+        color: #1f2a3a;
+        line-height: 1.5;
+      }
+
+      .app-wrapper {
+        display: flex;
+        max-width: 1600px;
+        margin: 0 auto;
+        background: #ffffff;
+        min-height: 100vh;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-side {
+        width: 290px;
+        background: linear-gradient(145deg, #0a2e3f 0%, #134b62 100%);
+        color: #f0f6fa;
+        flex-shrink: 0;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        overflow-y: auto;
+        padding: 1.8rem 0 2rem;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-header {
+        padding: 0 1.2rem 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 1.2rem;
+      }
+
+      .nav-header h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #ffcd7e;
+      }
+
+      .nav-header p {
+        font-size: 0.72rem;
+        opacity: 0.8;
+        margin-top: 6px;
+      }
+
+      .nav-menu {
+        list-style: none;
+        padding: 0 0.8rem;
+      }
+
+      .nav-menu li {
+        margin: 0.3rem 0;
+      }
+
+      .nav-btn {
+        width: 100%;
+        text-align: left;
+        background: transparent;
+        border: none;
+        padding: 0.7rem 1rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: #e2edf2;
+        border-radius: 32px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: inherit;
+      }
+
+      .nav-btn i {
+        margin-right: 10px;
+        font-style: normal;
+        font-weight: 400;
+        opacity: 0.8;
+      }
+
+      .nav-btn:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: white;
+        transform: translateX(4px);
+      }
+
+      .nav-btn.active {
+        background: #ffaa44;
+        color: #1f2e3a;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+      }
+
+      .main-area {
+        flex: 1;
+        background: #ffffff;
+        padding: 2rem 2.2rem 2.5rem;
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      .chapter {
+        display: none;
+        animation: fadeSlide 0.25s ease;
+      }
+
+      .chapter.active-chapter {
+        display: block;
+      }
+
+      @keyframes fadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+        font-weight: 800;
+        color: #0b5a6e;
+        border-left: 6px solid #ffaa44;
+        padding-left: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .subheading {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1f6c5c;
+        border-bottom: 2px solid #e2eaf1;
+        padding-bottom: 0.3rem;
+        margin: 1.6rem 0 1rem 0;
+      }
+
+      .card-tip {
+        background: #fafcfd;
+        border-left: 5px solid #ffaa44;
+        padding: 1rem 1.2rem;
+        border-radius: 20px;
+        margin: 1rem 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      .legal-box {
+        background: #f0f7ff;
+        border-left-color: #3a86ff;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: 0.9rem;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        border: 1px solid #cfdfed;
+        padding: 10px 12px;
+        vertical-align: top;
+      }
+
+      th {
+        background: #e9f0f5;
+        font-weight: 700;
+      }
+
+      .example-badge {
+        background: #e5e9f0;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 20px;
+        display: inline-block;
+        font-size: 0.7rem;
+        margin-right: 6px;
+      }
+
+      hr {
+        margin: 2rem 0;
+        border: none;
+        height: 1px;
+        background: #dce5ec;
+      }
+
+      footer {
+        margin-top: 2rem;
+        font-size: 0.7rem;
+        color: #5b6e8c;
+        text-align: center;
+        border-top: 1px solid #e2e8f0;
+        padding-top: 1.2rem;
+      }
+
+      @media (max-width: 700px) {
+        .app-wrapper {
+          flex-direction: column;
+        }
+        .nav-side {
+          width: 100%;
+          height: auto;
+          position: relative;
+          padding: 1rem;
+        }
+        .nav-menu {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .nav-menu li {
+          width: auto;
+        }
+        .nav-btn {
+          width: auto;
+          padding: 0.4rem 1rem;
+          font-size: 0.75rem;
+        }
+        .main-area {
+          height: auto;
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-wrapper">
+      <aside class="nav-side">
+        <div class="nav-header">
+          <h2>
+            <img
+              src="./WhatsAppMe_chg1.jpeg"
+              alt="Security Guard Icon"
+              style="width: 60px; height: auto; margin-left: 2rem"
+            />
+            保安員課程
+          </h2>
+          <p>
+            終極整合版：報告・巡邏・法律・急救・職責・行業・通訊・科技・客戶服務・衝突・突發事件・緊急事故
+          </p>
+        </div>
+        <ul class="nav-menu" id="dynamicNav">
+          <li>
+            <button class="nav-btn active" data-chapter="ch1">
+              🔔 警鐘鳴響分級 (Alarm Grading)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch2">
+              ⚖️ 法律條文 (Firearms & Security Ord.)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch3">
+              👮 管理員職責與權力 (Duties & Powers)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch4">
+              🚨 拘捕權力 & 武力 (Arrest & Force)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch5">
+              🔍 巡邏技巧與事件處理 (Patrol & Incident)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch6">
+              🩺 急救知識 (CPR/AED/First Aid)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch7">
+              🎓 專業技能訓練 (Professional Skills)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch8">
+              📋 報告書寫與記錄保存 (Report Writing & Records)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch9">
+              🏢 行業背景與培訓 (Industry Background & Training)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch10">
+              📡 無線電通訊與溝通技巧 (Radio & Communication)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch11">
+              💻 物業管理電腦化 (Property Tech)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch12">
+              🤝 客戶服務與投訴處理技巧 (Customer Service & Complaint Handling)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch13">
+              ⚡ 衝突解決培訓與團隊溝通 (Conflict Resolution & Team
+              Communication)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch14">
+              💣 突發事件・可疑物體與郵包炸彈 (Emergency Incidents – Suspicious
+              Objects & Mail Bombs)
+            </button>
+          </li>
+          <li>
+            <button class="nav-btn" data-chapter="ch15">
+              🚨 緊急事件處理程序 (Emergency Incident Procedures)
+            </button>
+          </li>
+          <!-- 新增第十六章：消防系統 -->
+          <li>
+            <button class="nav-btn" data-chapter="ch16">
+              🔥 消防系統 (Fire Planet)
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="main-area" id="mainContent">
+        <!-- 第一章：警鐘鳴響 -->
+        <div id="ch1" class="chapter active-chapter">
+          <div class="section-title">
+            🔔 防盜警鐘鳴響事件分級制度 (Alarm Response Grading)
+          </div>
+          <div class="subheading">📌 四級處理政策 (Four‑tier Policy)</div>
+          <ul>
+            <li>
+              <strong>第一級：全面處理 (Full Response)</strong> —
+              警員檢查樓宇，判斷強行進入/破壞痕跡，一般留守現場等候持匙人最多1小時。
+            </li>
+            <li>
+              <strong>第二級：降級處理 (De‑escalated)</strong> —
+              只以分區資源處理，不調派衝鋒隊；檢查無破壞則繼續巡邏，不等候持匙人。
+            </li>
+            <li>
+              <strong>第三級：有限度處理 (Limited)</strong> —
+              不會特別調派警員，通知巡邏警員稍後檢查，無發現則離去。
+            </li>
+            <li>
+              <strong>第四級：不作優先處理 (No Priority)</strong> —
+              不特別處理，不優先回應鳴響報告。
+            </li>
+          </ul>
+          <div class="legal-box card-tip">
+            <span class="example-badge">法例補充</span>
+            警方於2004年修訂為四級制，第四級官方名稱「不予處理」。各級警鐘若90日內無誤鳴，可提升一個級別；安裝核實技術設備可升至最高級別。
+          </div>
+          <div class="subheading">
+            📄 誤鳴記錄刪除申請 (False Alarm Removal)
+          </div>
+          <div class="card-tip">
+            在十分特殊情況下，若非系統設計/維修/敏感度因素引致誤鳴，戶主可書面申請刪除記錄，需連同證據交保安公司監察小組總督察考慮，結果書面通知。<br />⚠️
+            刪除個別記錄不代表系統自動提升至第一級處理。
+          </div>
+          <div class="subheading">🔄 升級機制 (Upgrade Mechanism)</div>
+          <p>
+            各級警鐘若在三個月內沒有誤鳴，即提升回一級處理；技術設備核實後可升至最高級別（官方：90日內無誤鳴可提升一級）。
+          </p>
+        </div>
+
+        <!-- 第二章：法律條文 -->
+        <div id="ch2" class="chapter">
+          <div class="section-title">⚖️ 相關法律條文 (Relevant Ordinances)</div>
+          <div class="subheading">
+            《火器及彈藥條例》(第238章) Firearms and Ammunition Ordinance (Cap.
+            238)
+          </div>
+          <ul>
+            <li>
+              槍械元件包括：身管、槍膛、子彈輪、槍架、槍身、機匣、槍門、槍栓等。
+            </li>
+            <li>
+              槍械定義：任何可發射子彈/投射物且槍口能量超過2焦耳的氣槍、電槍等。
+            </li>
+            <li>
+              無牌管有槍械或彈藥：循公訴程序定罪最高罰款$100,000及監禁14年。
+            </li>
+            <li>
+              《簡易程序治罪條例》第4(14a)條：疏忽發射氣槍造成危險可罰款$500或監禁3個月。
+            </li>
+          </ul>
+          <div class="subheading">
+            《保安及護衛服務條例》(第460章) Security and Guarding Services
+            Ordinance (Cap. 460)
+          </div>
+          <ul>
+            <li>
+              <strong>第10條</strong>：無牌擔任有報酬保安工作 →
+              罰款$10,000及監禁3個月。
+            </li>
+            <li>
+              <strong>第11(1)條</strong>：提供未經許可保安服務 →
+              罰款$100,000及監禁2年。
+            </li>
+            <li>
+              <strong>第12/13條</strong>：授權無牌人士/未按規定通知僱用變更 →
+              罰款$10,000及監禁3個月。
+            </li>
+          </ul>
+          <div class="card-tip">
+            保安工作法定定義：護衞財產、護衞任何人/地方防止罪行、安裝/保養/修理保安裝置、設計保安系統。
+          </div>
+        </div>
+
+        <!-- 第三章：管理員職責與權力 -->
+        <div id="ch3" class="chapter">
+          <div class="section-title">
+            👮 管理員的職責與權力 (Duties & Powers of Security Personnel)
+          </div>
+          <div class="subheading">行為與紀律 (Conduct & Discipline)</div>
+          <ul>
+            <li>
+              服從上級命令；當值不得飲酒、吸毒、賭博、吸煙；不得閒談、閱讀、看電視；不得索取利益/兼職；不得洩漏機密；保持良好品德形象。
+            </li>
+          </ul>
+          <div class="subheading">
+            一般職責 (General Duties: Prevent / Register / Record / Patrol)
+          </div>
+          <ul>
+            <li>
+              <strong>防止 (Prevent)</strong
+              >：阻止未經許可進入，查問可疑人士，必要時通知警方。
+            </li>
+            <li>
+              <strong>登記 (Register)</strong
+              >：訪客資料保留至少2年，注意尾隨人士。
+            </li>
+            <li>
+              <strong>記錄 (Record)</strong
+              >：事故(電梯故障/漏水/警鐘)及鑰匙借用資料。
+            </li>
+            <li>
+              <strong>巡邏 (Patrol)</strong>：記錄損毀，確保走火通道暢通。
+            </li>
+          </ul>
+          <div class="subheading">感官應用 (Sensory Application)</div>
+          <p>
+            <strong>視覺 (Sight)</strong>：火警、強闖、水浸、可疑行為等。<br />
+            <strong>聽覺 (Hearing)</strong
+            >：燃燒聲、打破玻璃、流水聲、異常機械聲。<br />
+            <strong>嗅覺 (Smell)</strong>：燃燒氣味、煤氣、油漆味。<br />
+            <strong>觸覺 (Touch)</strong>：測試設備溫度，不可觸高溫/帶電設備。
+          </p>
+        </div>
+
+        <!-- 第四章：拘捕權力與武力 -->
+        <div id="ch4" class="chapter">
+          <div class="section-title">🚨 管理員的拘捕權力 (Power of Arrest)</div>
+          <div class="subheading">權力來源 (Source of Power)</div>
+          <div class="card-tip">
+            市民拘捕權源自普通法及《刑事訴訟程序條例》第101條 (Cap. 221,
+            s.101)。<br />
+            「可逮捕的罪行」(arrestable offence)
+            指可判處超過12個月監禁的罪行，包括未遂罪行。
+          </div>
+          <div class="subheading">可拘捕的人士 (Persons Liable to Arrest)</div>
+          <ul>
+            <li>目睹破壞公安行為者；</li>
+            <li>有合理理由懷疑犯了可拘捕罪行的人；</li>
+            <li>
+              兜售或送遞可疑財物，且有理由懷疑涉及已犯或將犯的可拘捕罪行。
+            </li>
+          </ul>
+          <p>
+            概括而言，任何人如目睹或合理懷疑某人正在犯罪或剛犯罪，亦可行使拘捕權。
+          </p>
+          <div class="subheading">使用武力的程度 (Use of Force)</div>
+          <ul>
+            <li>
+              武力使用應按梯度進行：<br />語言示意 → 捉手肩 → 以手制服 →
+              相應武力 → 遇凶暴反抗可使用警棍。
+            </li>
+            <li>
+              武力必須符合《刑事訴訟程序條例》第101A條「就當時環境而言合理的武力」之規定。
+            </li>
+            <li>非法使用警棍可構成攻擊性武器罪，使用武力必須合乎比例。</li>
+          </ul>
+          <div class="subheading">搜查權力 (Search Powers)</div>
+          <ul>
+            <li>
+              保安員/市民並無法定搜查權力，但可要求非住戶出示身份證明文件作記錄；
+            </li>
+            <li>若對方拒絕，可禁止其進入私人地方，但不可強行搜查。</li>
+          </ul>
+          <div class="card-tip legal-box">
+            🔒
+            <strong>重要提醒：</strong>
+            使用武力時必須嚴格遵守《刑事訴訟程序條例》第101A條，僅限於「就當時環境而言合理」的程度。
+          </div>
+        </div>
+
+        <!-- 第五章：巡邏技巧與事件處理 -->
+        <div id="ch5" class="chapter">
+          <div class="section-title">
+            🔍 巡邏技巧與事件處理程序 (Patrol Techniques & Incident Handling)
+          </div>
+          <div class="subheading">🔧 巡邏前的準備 (Pre‑patrol Preparation)</div>
+          <ul>
+            <li>檢查配備：筆、記事簿、電筒、警棍、對講機、打鐘裝置等</li>
+            <li>可使用交通工具（單車／高球車），登記咪數</li>
+          </ul>
+          <div class="subheading">📌 巡邏執行要點 (Patrol Execution)</div>
+          <ul>
+            <li>向主管報出路線及開始時間並落簿</li>
+            <li>
+              簽簿／打更鐘是手段，目的是細心巡查，禁止分心（聽收音機、聊天）
+            </li>
+          </ul>
+          <div class="subheading">🎯 巡邏目的 (Objectives of Patrol)</div>
+          <ol>
+            <li>保障生命 (Protect life)</li>
+            <li>保護財物 (Protect property)</li>
+            <li>防止浪費及損失 (Prevent waste & loss)</li>
+            <li>防止罪案 (Prevent crime)</li>
+          </ol>
+          <div class="subheading">
+            📦 巡邏物品清單 (Patrol Equipment Checklist)
+          </div>
+          <ul>
+            <li>無線電對講機 (Two‑way radio)</li>
+            <li>傳呼機／無線電話 (Pager / mobile)</li>
+            <li>電子巡邏系統 (Electronic patrol system)</li>
+            <li>巡更鐘 (Patrol clock)</li>
+            <li>巡邏記錄簿 (Patrol log)</li>
+            <li>
+              電筒、筆記簿、警棍、銀笛 (Flashlight, notebook, baton, whistle)
+            </li>
+          </ul>
+          <div class="subheading">
+            🔍 巡邏八大要點 (Eight Key Patrol Checks)
+          </div>
+          <ul>
+            <li>鎖妥外門大閘窗戶 (Lock doors, gates, windows)</li>
+            <li>有否賊人匿藏 (Check for intruders)</li>
+            <li>照明設備正常 (Lighting functioning)</li>
+            <li>查問閒雜可疑人物 (Question suspicious persons)</li>
+            <li>停車場動態 (Car park activity)</li>
+            <li>設施運作正常 (Facilities operational)</li>
+            <li>消防設備檢查 (Fire equipment check)</li>
+            <li>防盜系統／警鐘／閃燈 (Alarm system / strobe)</li>
+          </ul>
+          <div class="subheading">🌍 巡邏種類 (Types of Patrol)</div>
+          <p>
+            地點：寫字樓、住宅、商場、工廠、停車場、室外<br />項目：防火、門窗、健康及安全條例、節約能源、警鐘系統、外牆照明、非法闖入、圍欄檢查
+          </p>
+          <div class="subheading">
+            👁️ 感官應用 (Sensory Application) — 補充要點
+          </div>
+          <ul>
+            <li>
+              <strong>視覺 (Sight)</strong>：火警跡象、闖入痕跡、異常物品等。
+            </li>
+            <li>
+              <strong>聽覺 (Hearing)</strong
+              >：燃燒聲、流水聲、打破玻璃、機械異響。
+            </li>
+            <li>
+              <strong>嗅覺 (Smell)</strong>：煤氣、燒焦味、油漆或化學氣味。
+            </li>
+            <li>
+              <strong>觸覺 (Touch)</strong
+              >：測試設備溫度（切勿觸碰高溫或帶電設備）。
+            </li>
+          </ul>
+          <div class="legal-box card-tip">
+            <span class="example-badge">法例補充</span>
+            保安員並無法律授權指揮交通，若在公眾地方造成阻礙可能觸犯《簡易程序治罪條例》；但根據《僱員補償條例》，執勤時意外受傷仍受保障。
+          </div>
+          <hr style="margin: 1.5rem 0" />
+          <div class="subheading">📌 門外插匙處理 (Key Left in Door)</div>
+          <div class="card-tip">
+            留意可疑狀況、門身虛掩、室內異常聲音；通知租戶/業主，勿擅自入內或拔匙；報告上級留守現場，聽從指令是否報案。
+          </div>
+          <div class="subheading">
+            📌 燒焦/異味處理 (Burning Smell / Odd Odour)
+          </div>
+          <div class="card-tip">
+            嗅覺找源頭、目測煙霧、探測門/牆溫度；留守等待支援，主管決定是否報案。
+          </div>
+          <div class="subheading">📌 爆竊案處理程序 (Burglary Handling)</div>
+          <ul>
+            <li>
+              匯報上級，判斷是否進行中 →
+              是：要求增援，報警封鎖出入口；否：報警派員了解。
+            </li>
+            <li>
+              重視自身安全，成功拘捕則看守疑犯直至警員到場；疑犯逃脫則記錄特徵/衣著/武器。
+            </li>
+            <li>
+              封鎖出入口，通知租戶點算損失，記錄警方檔案號碼並完成IR報告。
+            </li>
+          </ul>
+        </div>
+
+        <!-- 第六章：急救知識 -->
+        <div id="ch6" class="chapter">
+          <div class="section-title">
+            🩺 急救知識 (First Aid – CPR / AED / Trauma)
+          </div>
+          <div class="subheading">🚑 急救定義與目的 (Definition & Aims)</div>
+          <div class="card-tip">
+            急救：醫護未到場前利用現場物資初步救治。目的：拯救生命、防止惡化、減輕痛苦、助其復原。<br />⚠️
+            香港無「好人法」，施救仍可能承擔法律責任。
+          </div>
+          <div class="subheading">❤️ 心肺復甦法 (CPR) 要點</div>
+          <ul>
+            <li>按壓位置：胸骨下半部，雙手互扣用掌根</li>
+            <li>頻率：100-120次/分鐘，深度不少於5厘米</li>
+            <li>按壓30次：人工呼吸2次，持續至救援到達</li>
+            <li>若無人工呼吸面罩，可連續胸外按壓</li>
+          </ul>
+          <div class="subheading">⚡ AED (自動體外除顫器)</div>
+          <ul>
+            <li>
+              越早使用存活率越高，1分鐘內使用存活率達90%，每延後1分鐘遞減7-10%
+            </li>
+            <li>香港心臟專科學院推行AED推廣，消防處設「救心同仁」計劃。</li>
+          </ul>
+          <div class="subheading">🔥 創傷/燒傷處理 (Trauma / Burns)</div>
+          <ul>
+            <li>止血：加壓抬高，有異物時敷料旁施壓；內出血留意休克。</li>
+            <li>燒燙傷：沖冷水至少10分鐘，不刺破水泡，不撕黏衣。</li>
+            <li>化學品灼傷：沖洗20分鐘以上，除去沾化學品衣物。</li>
+          </ul>
+          <div class="subheading">🧠 其他傷病處理 (Other Conditions)</div>
+          <ul>
+            <li>休克：平臥抬高下肢，保暖，勿搬動。</li>
+            <li>人事不省：復原臥式，清除口腔異物，勿餵食。</li>
+            <li>骨折：固定受傷部位，勿移動。</li>
+            <li>觸電：切斷電源，用絕緣物分開，必要時CPR。</li>
+            <li>中暑：移往通風處，散熱。</li>
+          </ul>
+          <div class="subheading">
+            🫁 呼吸道急救（海姆立克法）(Heimlich Maneuver)
+          </div>
+          <ul>
+            <li>站於患者身後，一手握拳，拳眼對準患者肚臍與劍突之間。</li>
+            <li>
+              另一手緊握拳頭，向內、向上快速衝擊按壓，重複至異物排出或患者失去意識。
+            </li>
+          </ul>
+          <div class="subheading">
+            📋 受傷者發現程序 (Procedure when finding injured)
+          </div>
+          <ul>
+            <li>
+              接獲報告 → 派員帶急救箱/AED → 詢問病歷 → 視情況電召救護車 →
+              施行CPR/AED → 記錄目擊人及警方檔案號碼。
+            </li>
+          </ul>
+          <div class="subheading">
+            🧰 急救箱規定 (First‑aid Box Requirements, Cap. 509A)
+          </div>
+          <ul>
+            <li>
+              每100名僱員須備急救箱，指派至少2人管理，箱外標示「FIRST AID」
+            </li>
+            <li>
+              必備：急救指南、無藥紗布、三角繃帶、黏性紗布、壓力繃帶、安全扣針等，不應存放其他藥物。
+            </li>
+          </ul>
+        </div>
+
+        <!-- 第七章：專業技能訓練 -->
+        <div id="ch7" class="chapter">
+          <div class="section-title">
+            🎓 專業技能訓練 (Professional Skills & Report Writing – Summary)
+          </div>
+          <div class="subheading">📚 專業技能訓練 (Professional Skills)</div>
+          <ul>
+            <li>
+              防衛技術、危機管理、理解法律框架(市民拘捕權)、風險評估、實戰演練。
+            </li>
+          </ul>
+          <div class="subheading">
+            📝 報告書寫要訣 (Report Writing Tips – Brief)
+          </div>
+          <ul>
+            <li>
+              目的明確、立場清楚、直接簡潔真實、不誇大、不加入個人感受、24小時制、錯字用線刪除旁簽。
+            </li>
+            <li>5W：What, Who, Where, When, How。</li>
+            <li>
+              崗位記事簿【大簿】格式：序號、日期、時間、詳情，編碼如A001-999。
+            </li>
+          </ul>
+          <div class="card-tip">
+            事件報告須包含提交者、收件者、事故日期、標題、詳細過程及照片，並記錄警方檔案號碼(I.N./R.N.)。
+          </div>
+        </div>
+
+        <!-- 第八章：報告書寫與記錄保存 -->
+        <div id="ch8" class="chapter">
+          <div class="section-title">
+            📋 報告書寫與記錄保存 (Report Writing & Record Keeping) — 完整版
+          </div>
+          <div class="subheading">📌 報告的種類 (Types of Reports)</div>
+          <ul>
+            <li>
+              <strong>即時記錄 (Note Book)</strong> —
+              即時筆記，記下尋常與不尋常事情
+            </li>
+            <li>
+              <strong>崗位日誌 (Log Book)</strong> — 無論事件大小，即時記錄
+            </li>
+            <li>
+              <strong>書面報告 (Incident Report)</strong> —
+              詳細報告，可附文字、圖片、相片
+            </li>
+          </ul>
+          <div class="subheading">
+            📌 報告及記錄的作用 (Purpose of Reports & Records)
+          </div>
+          <div class="card-tip">
+            以書面形式向上級或委託人正式陳述，清楚列出事實，可作長久記錄、調查及法律證明。
+          </div>
+          <div class="legal-box card-tip">
+            <span class="example-badge">法例補充</span>
+            根據《保安及護衛服務條例》第460章，保安人員如遭刑事檢控須14日內書面通知處長。完善的報告是履行法定責任的依據。
+          </div>
+          <div class="subheading">
+            📌 報告什麼？(5W – What, Who, Where, When, How)
+          </div>
+          <ul>
+            <li><strong>WHAT</strong> — 發生什麼事？</li>
+            <li><strong>WHO</strong> — 誰人牽涉？</li>
+            <li><strong>WHERE</strong> — 何處發生？</li>
+            <li><strong>WHEN</strong> — 何時發生？</li>
+            <li><strong>HOW</strong> — 如何發生？</li>
+          </ul>
+          <div class="subheading">
+            📌 書寫報告須知 (Report Writing Guidelines)
+          </div>
+          <ul>
+            <li>盡快提交報告</li>
+            <li>錯字用線刪除並在旁加簽</li>
+            <li>採用24小時制</li>
+            <li>如有警員到場，索取 I.N. 或 R.N. 號碼</li>
+          </ul>
+          <div class="subheading">
+            📌 寫報告之要訣 (Key Tips for Report Writing)
+          </div>
+          <ol>
+            <li>明白報告之目的</li>
+            <li>清楚自己的立場</li>
+            <li>直接、簡單、扼要、真實</li>
+            <li>不要誇大事實</li>
+            <li>不要令閱讀者猜測</li>
+            <li>不要加入己見和感受</li>
+            <li>英文報告勿串錯字</li>
+            <li>數目字不要錯誤</li>
+          </ol>
+          <div class="subheading">
+            📌 善用筆記簿 (Using Notebook Effectively)
+          </div>
+          <ul>
+            <li>記下尋常及不尋常事情，不可單靠記憶</li>
+            <li>只記工作有關事情，切勿撕掉記錄</li>
+            <li>盡快將筆記轉為正式報告</li>
+          </ul>
+          <div class="subheading">
+            📌 崗位記事簿【大簿】格式示例 (Log Book Format Example)
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>序號 (Serial)</th>
+                <th>日期 (Date)</th>
+                <th>時間 (Time)</th>
+                <th>詳情 (Details)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>1-9-03</td>
+                <td>0745</td>
+                <td>A隊陳員接更，主任張彪，報更用工及簽收裝備</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>1-9-03</td>
+                <td>0800</td>
+                <td>B隊陳員主任趙虎，報更收工</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>1-9-03</td>
+                <td>0805</td>
+                <td>通知往北橋開2間，陳員374負責簽取鎖匙</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-tip">
+            📄 編碼：A001-999 / B001-999
+            如此類推。事件報告包含提交者、收件者、事故日期、標題、詳情及照片記錄。
+          </div>
+          <div class="subheading">
+            📌 事件報告實例（爆水喉）(Incident Report Example – Burst Pipe)
+          </div>
+          <div class="card-tip">
+            地點：8/F
+            男洗手間｜時間：1030｜發現爆水喉，即報主管，取指示牌，工程維修，清理恢復。<br />主管現場拍照3張，記錄於IR，檔案編號001。
+          </div>
+        </div>
+
+        <!-- 第九章：行業背景與培訓 -->
+        <div id="ch9" class="chapter">
+          <div class="section-title">
+            🏢 香港保安服務業背景 & 培訓 (Industry Background & Training)
+          </div>
+          <div class="subheading">📜 發展沿革 (Development History)</div>
+          <ul>
+            <li>1956年：根據《看守員條例》監管，護衛人員須向警方登記</li>
+            <li>
+              1994年：《保安及護衛服務條例》（第460章）制定，<strong>1995年6月1日全面實施</strong>，設立保安及護衛業管理委員會(SGSIA)
+            </li>
+            <li>
+              發牌制度涵蓋：護衛服務、武裝押運、保安系統設計/安裝/維修/修理
+            </li>
+            <li>從事公司及個人均須持有有效保安公司牌照及保安人員許可證</li>
+          </ul>
+          <div class="subheading">
+            ⚖️ 保安工作的法定定義（第460章第2條）(Statutory Definition of
+            Security Work)
+          </div>
+          <ul>
+            <li>(a) 護衞財產</li>
+            <li>(b) 護衞任何人或地方以防止和偵測罪行的發生</li>
+            <li>(c) 安裝、保養或修理保安裝置</li>
+            <li>(d) 設計附有保安裝置的系統</li>
+          </ul>
+          <div class="subheading">📌 罰則摘要 (Penalty Summary)</div>
+          <table>
+            <tr>
+              <th>條文 (Section)</th>
+              <th>罪行 (Offence)</th>
+              <th>罰則 (Penalty)</th>
+            </tr>
+            <tr>
+              <td>第10條</td>
+              <td>無牌擔任有報酬保安工作</td>
+              <td>罰款$10,000及監禁3個月</td>
+            </tr>
+            <tr>
+              <td>第11(1)條</td>
+              <td>提供未經許可保安服務</td>
+              <td>罰款$100,000及監禁2年</td>
+            </tr>
+            <tr>
+              <td>第12/13條</td>
+              <td>授權無牌人士/未按規定通知僱用變更</td>
+              <td>罰款$10,000及監禁3個月</td>
+            </tr>
+          </table>
+          <div class="subheading">
+            🎓 保安及護衛業培訓委員會 (SSTB – Security Services Training Board)
+          </div>
+          <div class="card-tip">
+            1998年於職業訓練局(VTC)成立，成員包括SGSIA、警務處、保安業及培訓機構代表，專注人力調查、培訓及提升服務質素。
+          </div>
+          <div class="subheading">
+            📚 保安服務業職能與範疇（培訓文件）(Functions and Scope)
+          </div>
+          <ul>
+            <li>保安服務業職能與範疇</li>
+            <li>監控團隊及崗位評核</li>
+            <li>暴力或蓄意滋擾事件處理</li>
+            <li>電力中斷情況處理程序</li>
+          </ul>
+          <div class="legal-box card-tip">
+            <span class="example-badge">許可證條件</span>
+            持證人如更換僱主或遭刑事檢控，須在14日內書面通知警務處處長。
+          </div>
+          <div class="card-tip">
+            <strong>【培訓目標】</strong> 提升隊員意識，提高服務水準及管理制度。
+          </div>
+        </div>
+
+        <!-- 第十章：無線電通訊與溝通技巧 -->
+        <div id="ch10" class="chapter">
+          <div class="section-title">
+            📡 無線電通訊與溝通技巧 (Radio Communication & Communication Skills)
+          </div>
+          <div class="subheading">
+            收發電訊紀律 (Discipline in Transmitting)
+          </div>
+          <ul>
+            <li>按下傳送按鈕後，略停片刻才開始講話</li>
+            <li>發訊前先表明自己身份，讓對方預備好接收</li>
+            <li>隨時聆聽，立即回答呼喚</li>
+          </ul>
+          <div class="subheading">常用通訊術語 (Common Radio Terms)</div>
+          <table>
+            <thead>
+              <tr>
+                <th>術語 (Term)</th>
+                <th>意思 (Meaning)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Send</td>
+                <td>我現在接收，你可發出訊息</td>
+              </tr>
+              <tr>
+                <td>Over</td>
+                <td>訊息發送完成，等待回答</td>
+              </tr>
+              <tr>
+                <td>Out</td>
+                <td>訊息發送完成，不須回答</td>
+              </tr>
+              <tr>
+                <td>Roger</td>
+                <td>訊息收到</td>
+              </tr>
+              <tr>
+                <td>Wilco</td>
+                <td>訊息收妥照辦</td>
+              </tr>
+              <tr>
+                <td>Copy</td>
+                <td>遵命（下級對上級）</td>
+              </tr>
+              <tr>
+                <td>Say again</td>
+                <td>要求重覆</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="subheading">26字母北約音標 (NATO Phonetic Alphabet)</div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 6px;
+              background: #f9f9f9;
+              padding: 12px;
+              border-radius: 16px;
+            "
+          >
+            <span>A‑Alpha</span><span>B‑Bravo</span><span>C‑Charlie</span
+            ><span>D‑Delta</span> <span>E‑Echo</span><span>F‑Foxtrot</span
+            ><span>G‑Golf</span><span>H‑Hotel</span> <span>I‑India</span
+            ><span>J‑Juliett</span><span>K‑Kilo</span><span>L‑Lima</span>
+            <span>M‑Mike</span><span>N‑November</span><span>O‑Oscar</span
+            ><span>P‑Papa</span> <span>Q‑Quebec</span><span>R‑Romeo</span
+            ><span>S‑Sierra</span><span>T‑Tango</span> <span>U‑Uniform</span
+            ><span>V‑Victor</span><span>W‑Whiskey</span><span>X‑Xray</span>
+            <span>Y‑Yankee</span><span>Z‑Zulu</span>
+          </div>
+          <div class="subheading">
+            電訊條例（第106章）Telecommunications Ordinance (Cap. 106)
+          </div>
+          <div class="card-tip legal-box">
+            📌 無線電對講機牌照年費 $300，須向通訊事務管理局申請。<br />
+            ❌ 無牌管有或使用無線電器具，一經定罪最高罰款 $100,000 及監禁5年。
+          </div>
+          <div class="subheading">溝通 ABC & 3P (Communication ABC & 3P)</div>
+          <p>
+            <strong>ABC：</strong> Accuracy 準確、Brevity 簡潔、Clarity 清晰<br />
+            <strong>3P：</strong> Polite 有禮、Positive 正面、Professional 專業
+          </p>
+        </div>
+
+        <!-- ========== 第十一章：物業管理電腦化（整合消防系統聯繫設施） ========== -->
+        <div id="ch11" class="chapter">
+          <div class="section-title">
+            💻 物業管理電腦化 (Property Management Computerization)
+          </div>
+
+          <!-- 智能化設計 -->
+          <div class="subheading">
+            🏢 智能化設計 (Intelligent Building Design)
+          </div>
+          <div class="card-tip">
+            現代建築物越來越多採用智能化設計，由中央電腦監控大廈保安系統、冷氣、消防、照明、水泵、升降機等……設施，以獲得最佳效益。<br />
+            (Modern buildings increasingly adopt intelligent design, using a
+            central computer to monitor security systems, air conditioning,
+            fire, lighting, water pumps, lifts and other facilities for optimal
+            efficiency.)
+          </div>
+
+          <!-- 電子巡邏系統 & IBMS（原有簡要描述） -->
+          <div class="subheading">
+            📱 電子巡邏系統 & IBMS (Electronic Patrol System & IBMS)
+          </div>
+          <ul>
+            <li>
+              <strong>系統組成 (System Components)</strong
+              >：電腦軟件、信息鈕、巡更棒×3。信息鈕安裝於不同路段，巡更棒感應後自動記錄時間，數據匯入電腦形成巡查數據庫。
+              (Computer software, information buttons, patrol wands ×3.
+              Information buttons installed at various locations; wands
+              automatically record time upon contact; data uploaded to form a
+              patrol database.)
+            </li>
+            <li>
+              <strong>智能流動巡邏系統 (Smart Mobile Patrol System)</strong
+              >：保安員使用智能手機，系統提供路線及工作清單，可即時打卡上載紀錄，突發時可向控制室匯報增援。
+              (Security guards use smartphones; system provides routes and task
+              lists; real-time check-in and upload; can report incidents and
+              request backup to control room.)
+            </li>
+            <li>
+              巡更棒＋信息鈕，記錄時間及位置。 (Patrol wand + information
+              buttons record time and location.)
+            </li>
+            <li>
+              智能手機巡邏系統可即時匯報突發事件。 (Smartphone patrol system
+              enables real-time incident reporting.)
+            </li>
+            <li>
+              IBMS整合消防、冷氣、照明等集中監控。 (IBMS integrates fire, air
+              conditioning, lighting, etc., for centralized monitoring.)
+            </li>
+          </ul>
+
+          <!-- ===== IBMS 詳細定義與功能 ===== -->
+          <div class="subheading">
+            🧠 智能大廈管理系統 (IBMS) – 詳細定義與功能 (Detailed Definition &
+            Functions)
+          </div>
+          <ul>
+            <li>
+              將整座大廈各電子系統集成於一個平台，統一監督、控制、管理，智能調動資源，實現遠程監察及業戶互動。
+              (Integrates all electronic systems of the building into a single
+              platform for unified supervision, control, and management;
+              intelligently allocates resources; enables remote monitoring and
+              tenant interaction.)
+            </li>
+          </ul>
+
+          <!-- ===== 升降機智能系統 ===== -->
+          <div class="subheading">
+            🛗 升降機智能系統 (Lift Intelligent Systems)
+          </div>
+          <ul>
+            <li>
+              <strong>智能分配系統 (Intelligent Destination Dispatch)</strong
+              >：解決傳統升降機因樓層多、使用者多造成的輸送效率問題。 (Solves
+              efficiency issues in traditional lifts caused by many floors and
+              high user traffic.)
+            </li>
+            <li>
+              <strong>無鋼索升降機技術 (Ropeless Lift Technology)</strong
+              >：線性馬達磁場加速，軌道可垂直水平轉換，突破傳統1600呎限制，釋放建築空間。
+              (Linear motor magnetic acceleration; tracks can switch between
+              vertical and horizontal; breaks the traditional 1,600-foot limit,
+              freeing up building space.)
+            </li>
+          </ul>
+
+          <!-- ===== 升降機安全管理法例 ===== -->
+          <div class="legal-box card-tip">
+            <span class="example-badge"
+              >升降機安全管理 (Lift Safety Management)</span
+            >
+            根據機電工程署《升降機負責人應對惡劣天氣的指引》：8號風球或以上應暫停使用升降機；暴雨時注意井道水浸風險；定期檢查排水系統。另《升降機及自動梯條例》（第618章）要求妥善保養、定期檢驗，故障須報告機電署。<br />
+            (According to the EMSD's "Guidelines for Lift Owners in Adverse
+            Weather": Lifts should be suspended when Typhoon Signal No. 8 or
+            above is hoisted; pay attention to shaft flooding risks during heavy
+            rain; regularly inspect drainage systems. The Lifts and Escalators
+            Ordinance (Cap. 618) requires proper maintenance, regular
+            inspections, and reporting of faults to EMSD.)
+          </div>
+
+          <!-- 閉路電視系統比較（原有） -->
+          <div class="subheading">
+            📹 閉路電視系統比較 (CCTV System Comparison)
+          </div>
+          <ul>
+            <li>
+              定義：Closed-Circuit
+              Television，特定區域視像傳輸，於DVR/NVR錄影播放。
+            </li>
+            <li>
+              <strong>NVR（網絡線）</strong
+              >：解像度1080p~4K，影像最佳，佈線網路線，傳送超500米，鏡頭及錄影機加密，多帳號管理，適合擴展。
+            </li>
+            <li>
+              <strong>DVR（同軸線）</strong
+              >：解像度576~1080p/4K，一般影像，佈線電源+影像線，傳送≤100米，儲存約1個月，僅錄影機加密，成本較低。
+            </li>
+            <li>
+              <strong>IP CAMERA（無線）</strong
+              >：解像度720p~1080p，WiFi+電源，傳送受WiFi範圍限制，儲存2-7天，穩定性受訊號影響，彈性安裝。
+            </li>
+          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>系統 (System)</th>
+                <th>特點 (Features)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NVR（網絡線）</td>
+                <td>解像度可達4K，傳輸距離長，安全性高</td>
+              </tr>
+              <tr>
+                <td>DVR（同軸線）</td>
+                <td>成本較低，儲存約1個月</td>
+              </tr>
+              <tr>
+                <td>IP CAM（無線）</td>
+                <td>彈性安裝，但受WiFi穩定性影響</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- 私隱合規（原有） -->
+          <div class="subheading">
+            🔒 私隱合規 (PCPD指引) (Privacy Compliance – PCPD Guidelines)
+          </div>
+          <ul>
+            <li>禁止在洗手間、更衣室安裝攝錄機。</li>
+            <li>須張貼告示說明監察目的及聯絡方式。</li>
+            <li>錄影保存期不超過收集目的所需，勿隨意網上分享。</li>
+          </ul>
+
+          <!-- 法例補充（物管業監管局及關鍵基礎設施條例） -->
+          <div class="legal-box card-tip">
+            <span class="example-badge">法例補充 (Legal Supplement)</span>
+            根據物業管理業監管局2022年《處理緊急事故》操守守則，物管公司應設立機制處理緊急事故，包括風險評估、制定程序、委任負責人、安排演習及設立支援部門聯絡渠道。另根據2025年《保護關鍵基礎設施（電腦系統）條例》，涉及物管系統機構須遵守網絡安全義務，包括設立安全管理單位、年度風險評估及獨立安全審計。<br />
+            (According to the Property Management Authority's 2022 Code of
+            Practice on Emergency Incident Handling, property management
+            companies shall establish mechanisms for handling emergencies,
+            including risk assessment, procedure formulation, appointment of
+            responsible persons, drills, and liaison channels with support
+            departments. Under the 2025 Protection of Critical Infrastructure
+            (Computer Systems) Ordinance, entities involving property management
+            systems must comply with cybersecurity obligations, including
+            establishing security management units, annual risk assessments, and
+            independent security audits.)
+          </div>
+
+          <!-- PCPD 私隱合規（來自03-24，原有） -->
+          <div class="legal-box card-tip">
+            <span class="example-badge">私隱合規 (PCPD)</span>
+            根據個人資料私隱專員公署2025年12月《使用閉路電視監察指引》：合法目的方可安裝；禁止安裝於更衣室、洗手間；隱藏式攝錄機僅迫不得已使用；須張貼告示說明目的及聯絡方式；資料保存不超過所需時間；未經同意不得網上分享影片。
+          </div>
+
+          <div class="card-tip">
+            💡
+            物業管理電腦化有助提升效率，但保安員必須熟悉系統操作，並時刻遵守私隱條例。<br />
+            (Property management computerization enhances efficiency, but
+            security personnel must be familiar with system operations and
+            always comply with privacy regulations.)
+          </div>
+        </div>
+
+        <!-- 第十二章：客戶服務與投訴處理技巧 -->
+        <div id="ch12" class="chapter">
+          <div class="section-title">
+            🤝 客戶服務與投訴處理技巧 (Customer Service & Complaint Handling)
+          </div>
+          <div class="subheading">A.S.K. 服務模型 (A.S.K. Service Model)</div>
+          <p>
+            <strong>A</strong>ttitude (態度) ・ <strong>S</strong>kill (技能) ・
+            <strong>K</strong>nowledge (知識)
+          </p>
+          <div class="subheading">
+            處理投訴三步曲 (Three‑step Complaint Handling)
+          </div>
+          <ol>
+            <li>
+              <strong>處理情緒 (Handle Emotions)</strong
+              >：鎮定、聆聽、道歉、表示理解。
+            </li>
+            <li>
+              <strong>了解及建議行動 (Understand & Suggest Action)</strong
+              >：客觀分析、提供多項選擇、採取行動。
+            </li>
+            <li>
+              <strong>回饋結束 (Feedback & Closure)</strong
+              >：感謝意見、跟進、轉介上司。
+            </li>
+          </ol>
+          <div class="subheading">
+            電話四禁句 (Four Forbidden Phrases on the Phone)
+          </div>
+          <ul>
+            <li>
+              避免使用：「我不知道」「我幫你唔到」「我們不能」「你要這樣做」。
+            </li>
+            <li>改為正面回應：「我可以怎樣做」「不如這樣做」等。</li>
+          </ul>
+          <div class="card-tip">
+            📞 電話鈴響三聲內接聽，等候超過10秒應主動道歉，對方掛線後才收線。<br />
+            (Answer within three rings; apologize if kept waiting over 10
+            seconds; hang up only after the caller disconnects.)
+          </div>
+        </div>
+
+        <!-- 第十三章：衝突解決培訓與團隊溝通 -->
+        <div id="ch13" class="chapter">
+          <div class="section-title">
+            ⚡ 衝突解決培訓與團隊溝通 (Conflict Resolution & Team Communication)
+          </div>
+          <div class="subheading">
+            衝突定義 & 類型 (Conflict Definition & Types)
+          </div>
+          <ul>
+            <li>
+              <strong>個人衝突 (Personal Conflict)</strong>：意見／價值觀分歧
+            </li>
+            <li>
+              <strong>團體衝突 (Group Conflict)</strong>：部門對立／文化差異
+            </li>
+            <li>
+              <strong>特徵 (Characteristics)</strong>：對立性
+              (opposition)、持續性 (persistence)
+            </li>
+          </ul>
+          <div class="subheading">
+            預防與處理策略 (Prevention & Handling Strategies)
+          </div>
+          <ul>
+            <li>
+              定期團隊會議，鼓勵直接交流 (Regular team meetings, encourage
+              direct communication)
+            </li>
+            <li>
+              制定行為準則，明確崗位權責 (Establish code of conduct, clarify
+              roles and responsibilities)
+            </li>
+            <li>
+              快速介入個別談話，聚焦根源 (Intervene early in private
+              conversations, focus on root causes)
+            </li>
+            <li>
+              建立調解渠道，必要時尋求專業輔導 (Set up mediation channels, seek
+              professional counselling if needed)
+            </li>
+          </ul>
+          <div class="subheading">
+            部門關係守則 (Departmental Relations Guidelines)
+          </div>
+          <ul>
+            <li>
+              切忌背後閒言，影響團隊精神 (Avoid gossiping behind backs, which
+              harms team spirit)
+            </li>
+            <li>
+              先服從後上訴，坦誠相助，避免爭威奪勝 (Obey first, appeal later;
+              help each other openly; avoid power struggles)
+            </li>
+          </ul>
+          <div class="card-tip">
+            🤝 良好的衝突管理能提升安全防護體系穩定性及服務質素。<br />
+            (Good conflict management enhances the stability of the security
+            system and service quality.)
+          </div>
+        </div>
+
+        <!-- 第十四章：突發事件・可疑物體與郵包炸彈 -->
+        <div id="ch14" class="chapter">
+          <div class="section-title">
+            💣 突發事件・可疑物體與郵包炸彈處理 (Emergency Incidents –
+            Suspicious Objects & Mail Bomb Handling)
+          </div>
+          <div class="subheading">
+            🔍 可疑物體特徵 (Characteristics of Suspicious Objects)
+          </div>
+          <ul>
+            <li>
+              不應出現在該處、無物主、隱蔽或不常見 (Unexpected location,
+              unclaimed, concealed or unusual)
+            </li>
+            <li>
+              爆炸品：異常重量、電線外露、油漬、難聞氣味 (Explosives: abnormal
+              weight, exposed wires, oil stains, pungent odour)
+            </li>
+          </ul>
+          <div class="subheading">📌 4C 行動 (4C Actions)</div>
+          <p>
+            <strong>C</strong>onfirm (確認) ・ <strong>C</strong>lear (清除) ・
+            <strong>C</strong>ordon (圍封) ・ <strong>C</strong>ontrol (控制)
+          </p>
+          <div class="subheading">🚧 圍封範圍 (Cordon Perimeter)</div>
+          <ul>
+            <li>
+              室內25米內禁用無線電，上下2-3層 (Indoors: 25-metre radius, avoid
+              radio use; cordon off 2-3 floors above and below)
+            </li>
+            <li>
+              室外200米內禁止接近可疑物體 (Outdoors: 200-metre exclusion zone)
+            </li>
+            <li>
+              切勿移動可疑物品，立即報警 (Do not move the object; call police
+              immediately)
+            </li>
+          </ul>
+          <div class="subheading">📞 炸彈恐嚇 (Bomb Threat)</div>
+          <ul>
+            <li>
+              冷靜、記錄每句話，通知主管，切勿洩漏資訊 (Stay calm, note every
+              word, inform supervisor, do not leak information)
+            </li>
+          </ul>
+          <div class="card-tip">
+            💡
+            處理可疑物體時，首要原則是保護自身及他人安全，切勿觸碰或移動物品，立即通知警方並協助疏散。<br />
+            (When handling suspicious objects, the top priority is to protect
+            yourself and others. Do not touch or move the item; immediately
+            notify police and assist in evacuation.)
+          </div>
+        </div>
+
+        <!-- 第十五章：緊急事件處理程序 -->
+        <div id="ch15" class="chapter">
+          <div class="section-title">
+            🚨 緊急事件處理程序 (Emergency Incident Procedures)
+          </div>
+          <div class="subheading">
+            🌪️ 颱風 (Typhoon) – 8號或以上 (Signal No. 8 or above)
+          </div>
+          <ul>
+            <li>
+              未獲上級允許不得離開崗位，有人接替方可離去 (Do not leave the post
+              without superior’s permission; may leave only after relieved by
+              replacement)
+            </li>
+            <li>
+              張貼颱風消息，固定易吹倒物件 (Post typhoon information; secure
+              loose objects that may be blown away)
+            </li>
+            <li>
+              檢查泵房、電掣房、去水渠，確保緊急用具備用 (Inspect pump rooms,
+              switch rooms, drainage channels; ensure emergency equipment is
+              ready)
+            </li>
+          </ul>
+          <div class="subheading">🛗 升降機困人 (Lift Entrapment)</div>
+          <ul>
+            <li>
+              確定編號位置，安撫被困者，通知控制室及維修公司 (Identify lift
+              number and location; reassure trapped persons; notify control room
+              and maintenance company)
+            </li>
+            <li>
+              利用CCTV監察，15分鐘內維修未到場即致電消防處 (Monitor via CCTV; if
+              maintenance does not arrive within 15 minutes, call the Fire
+              Services Department)
+            </li>
+            <li>
+              被困者放出後登記資料及警方檔案號碼 (After release, record personal
+              details of the trapped persons and police case number)
+            </li>
+          </ul>
+          <div class="subheading">
+            ⚡ 停電 / 洩漏 / 水浸 (Power Outage / Gas Leak / Flooding)
+          </div>
+          <ul>
+            <li>
+              <strong>停電 (Power Outage)</strong
+              >：通知主管搶修，安撫用戶，切勿用蠟燭 (Notify supervisor for
+              repair; reassure residents; do not use candles)
+            </li>
+            <li>
+              <strong>氣體洩漏 (Gas Leak)</strong
+              >：熄滅明火，打開門窗，關氣閥，疏散及報警 (Extinguish open flames;
+              open windows and doors; turn off gas valve; evacuate and call
+              police)
+            </li>
+            <li>
+              <strong>水浸 (Flooding)</strong
+              >：移開積物、清理渠道、使用沙包、查明原因 (Remove debris; clear
+              drainage channels; use sandbags; investigate the cause)
+            </li>
+          </ul>
+          <div class="subheading">
+            🧱 高空墜物 (Falling Objects from Height)
+          </div>
+          <ul>
+            <li>
+              立即調查，拍照存案，警告住戶，可報警 (Investigate immediately;
+              take photos for records; warn residents; may call police)
+            </li>
+            <li>
+              《簡易程序治罪條例》第4B條：墜物致危險可罰款$10,000及監禁六個月
+              (Summary Offences Ordinance, Cap. 228, s.4B: causing danger by
+              falling objects – fine up to $10,000 and imprisonment for 6
+              months)
+            </li>
+          </ul>
+          <div class="card-tip">
+            💡
+            處理緊急事故時，保安員必須保持冷靜，按照既定程序行動，並優先確保人員安全及通報上級。<br />
+            (When handling emergencies, security personnel must remain calm,
+            follow established procedures, prioritise safety, and report to
+            superiors promptly.)
+          </div>
+        </div>
+
+        <!-- ========== 第十六章：消防系統 (Fire Planet) 獨立章節 ========== -->
+        <div id="ch16" class="chapter">
+          <div class="section-title">🔥 消防系統 (Fire Planet)</div>
+
+          <div class="subheading">
+            🔥 消防系統聯繫設施 (Interfaced Facilities)
+          </div>
+          <ul>
+            <li>手動火警警鐘 (Manual fire alarm call points)</li>
+            <li>消防喉轆 (Fire hose reels)</li>
+            <li>煙霧/溫度偵測器 (Smoke/heat detectors)</li>
+            <li>消防泵 (Fire pumps)</li>
+            <li>自動花灑系統 (Automatic sprinkler systems)</li>
+            <li>防火閘 (Fire dampers)</li>
+            <li>流水警鐘 (Water flow alarms)</li>
+            <li>升降機 (Lifts – fireman’s lift / lift recall)</li>
+          </ul>
+
+          <div class="legal-box card-tip">
+            <span class="example-badge">法例補充 (Legal Supplement)</span>
+            所有消防裝置須按《最低限度之消防裝置及設備守則》安裝、測試、保養。關閉消防裝置前須通知消防處。根據《消防安全（建築物）條例》（第572章），舊式樓宇需安裝消防裝置。<br />
+            (All fire services installations must be installed, tested and
+            maintained in accordance with the “Code of Practice for Minimum Fire
+            Services Installations and Equipment”. The Fire Services Department
+            must be notified before any fire services installation is
+            deactivated. Under the Fire Safety (Buildings) Ordinance (Cap. 572),
+            old buildings are required to have fire services installations.)
+          </div>
+
+          <div class="card-tip">
+            💡
+            保安員應熟悉大廈消防系統的運作及緊急應變程序，定期檢查消防設備，確保其處於良好狀態。<br />
+            (Security personnel should be familiar with the building's fire
+            system operation and emergency procedures, regularly inspect fire
+            equipment, and ensure they are in good working order.)
+          </div>
+        </div>
+
+        <footer>
+          資料整合自《保安及護衛服務條例》第460章、警務處防止罪案科、消防處、機電工程署、個人資料私隱專員公署、物業管理業監管局及勞工處指引<br />
+          綜合四個教學檔案 (2026-03-19, 2026-03-21, 2026-03-23, 2026-03-24) —
+          所有內容完整保留，僅供自學參考。
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // 章節切換與導航高亮
+      const chapters = document.querySelectorAll(".chapter");
+      const navButtons = document.querySelectorAll(".nav-btn");
+
+      function showChapter(chapterId) {
+        chapters.forEach((ch) => ch.classList.remove("active-chapter"));
+        const target = document.getElementById(chapterId);
+        if (target) target.classList.add("active-chapter");
+
+        navButtons.forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.getAttribute("data-chapter") === chapterId) {
+            btn.classList.add("active");
+          }
+        });
+        document.querySelector(".main-area").scrollTop = 0;
+      }
+
+      navButtons.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          const chapterId = this.getAttribute("data-chapter");
+          if (chapterId) showChapter(chapterId);
+        });
+      });
+
+      // 初始同步高亮
+      const activeNow = document.querySelector(".chapter.active-chapter");
+      if (activeNow) {
+        const initId = activeNow.getAttribute("id");
+        navButtons.forEach((btn) => {
+          if (btn.getAttribute("data-chapter") === initId)
+            btn.classList.add("active");
+          else btn.classList.remove("active");
+        });
+      } else {
+        showChapter("ch1");
+      }
+    </script>
+  </body>
+</html>
